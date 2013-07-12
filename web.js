@@ -8,7 +8,7 @@ app.get('/', function(request, response) {
  
   console.log("Reading file");
   fs.readFile('index.html','utf8', function (err, data) {
-    if (err) throw err;
+    if (err) response.send(err);
     //console.log(data);
     response.send(data);
   });
@@ -17,4 +17,4 @@ app.get('/', function(request, response) {
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
-//});
+});
